@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SmartBrain-api - v1
 Final project for ZTM course
 
@@ -10,3 +11,7 @@ Final project for ZTM course
 
 *visist https://zerotomastery.io/ for more*
 
+=======
+# Face-Recognition-App
+A full stack Face Recognition Application.
+>>>>>>> 898e73542883bd6caea22d3266f91eea2db43d08
