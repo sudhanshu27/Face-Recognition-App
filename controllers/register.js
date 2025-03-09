@@ -28,8 +28,14 @@ const handleRegister = (req, res, db, bcrypt) => {
           });
       })
       .then(trx.commit)
-      .catch(trx.rollback);
-  }).catch((err) => res.status(400).json("unable to register"));
+      .catch((err) => {
+        if (err.code === "23505") { // Unique constraint violation (email already exists)
+          res.status(400).json({ error: "User already exists" });
+        } else {
+          res.status(500).json({ error: "Database transaction failed" });
+        }
+      });
+  }).catch((err) => res.status(500).json({ error: "Server error. Please try again later." }));
 };
 
 module.exports = {
